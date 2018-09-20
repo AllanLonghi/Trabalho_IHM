@@ -1,0 +1,10 @@
+C:\Users\franc\source\repos\Trabalho_IHM\Atividade1\Biblioteca\bin\Debug\Biblioteca.exe.config
+C:\Users\franc\source\repos\Trabalho_IHM\Atividade1\Biblioteca\bin\Debug\Biblioteca.exe
+C:\Users\franc\source\repos\Trabalho_IHM\Atividade1\Biblioteca\bin\Debug\Biblioteca.pdb
+C:\Users\franc\source\repos\Trabalho_IHM\Atividade1\Biblioteca\obj\Debug\Biblioteca.csprojAssemblyReference.cache
+C:\Users\franc\source\repos\Trabalho_IHM\Atividade1\Biblioteca\obj\Debug\Biblioteca.Inicio.resources
+C:\Users\franc\source\repos\Trabalho_IHM\Atividade1\Biblioteca\obj\Debug\Biblioteca.Properties.Resources.resources
+C:\Users\franc\source\repos\Trabalho_IHM\Atividade1\Biblioteca\obj\Debug\Biblioteca.csproj.GenerateResource.cache
+C:\Users\franc\source\repos\Trabalho_IHM\Atividade1\Biblioteca\obj\Debug\Biblioteca.csproj.CoreCompileInputs.cache
+C:\Users\franc\source\repos\Trabalho_IHM\Atividade1\Biblioteca\obj\Debug\Biblioteca.exe
+C:\Users\franc\source\repos\Trabalho_IHM\Atividade1\Biblioteca\obj\Debug\Biblioteca.pdb
