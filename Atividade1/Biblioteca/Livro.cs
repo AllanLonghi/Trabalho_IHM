@@ -9,12 +9,12 @@ namespace Biblioteca
 {
     public class Livro
     {
-        Bitmap Capa;
-        string Titulo;
-        string Autor;
-        string Genero;
-        int NumeroPaginas;
-        int NumeroExemplares;
-        int Disponibilidade;
+        public Image Capa;
+        public string Titulo;
+        public string Autor;
+        public string Genero;
+        public int NumeroPaginas;
+        public int NumeroExemplares;
+        public int Disponibilidade;
     }
 }

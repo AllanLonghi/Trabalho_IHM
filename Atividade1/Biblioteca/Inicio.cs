@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Biblioteca
@@ -22,57 +17,114 @@ namespace Biblioteca
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.txtTitulo.ReadOnly = true;
-            this.txtNroPaginas.ReadOnly = true;
-            this.txtNroExemplares.ReadOnly = true;
-            this.txtGenero.ReadOnly = true;
-            this.txtAutor.ReadOnly = true;
+            txtTitulo.ReadOnly = true;
+            txtNroPaginas.ReadOnly = true;
+            txtNroExemplares.ReadOnly = true;
+            txtGenero.ReadOnly = true;
+            txtAutor.ReadOnly = true;
 
-            this.btnEnviar.Enabled = false;
-            this.btnExcluir.Enabled = false;
+            btnEnviar.Enabled = false;
 
-            this.rdEmprestimoLivre.Enabled = false;
-            this.rdLocal.Enabled = false;
-            if (this.livro == null)
+
+            rdEmprestimoLivre.Enabled = false;
+            rdLocal.Enabled = false;
+            if (livro == null)
             {
-                this.btnEditar.Text = "Novo";
+                btnExcluir.Enabled = false;
+                btnEditar.Text = "Novo";
+            }
+            else
+            {
+                btnExcluir.Enabled = true;
+                btnEditar.Text = "Editar";
             }
         }
 
         private void Button4_Click(object sender, EventArgs e)
         {
-            if (this.estadoEntidade == 1 && this.livro == null)
+            if (estadoEntidade == 1 && livro == null)
             {
-                this.btnEditar.Text = "Salvar";
+                TornarEntidadeEdicao();
 
-                this.txtTitulo.ReadOnly = false;
-                this.txtNroPaginas.ReadOnly = false;
-                this.txtNroExemplares.ReadOnly = false;
-                this.txtGenero.ReadOnly = false;
-                this.txtAutor.ReadOnly = false;
-
-                this.btnEnviar.Enabled = true;
-                this.btnExcluir.Enabled = true;
-
-                this.rdEmprestimoLivre.Enabled = true;
-                this.rdLocal.Enabled = true;
-
-                this.livro = new Livro();
-                this.estadoEntidade = 2;
+                livro = new Livro();
             }
+            else if (estadoEntidade == 2 && livro != null)
+            {
+                var houveErro = false;
+                errorProvider.Clear();
+                errorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+
+
+                foreach (var item in Controls.OfType<TextBox>())
+                {
+                    if (string.IsNullOrWhiteSpace(item.Text))
+                    {
+                        errorProvider.SetError(item, $"Campo obrigatório.");
+                        houveErro = true;
+                    }
+                }
+                if (houveErro)
+                {
+                    return;
+                }
+
+                SalvarInformacoesEntidade();
+                estadoEntidade = 1;
+                Form1_Load(sender, e);
+            }
+            else if (estadoEntidade == 1 && livro != null)
+            {
+                TornarEntidadeEdicao();
+            }
+
+        }
+
+        private void SalvarInformacoesEntidade()
+        {
+            livro.Autor = txtAutor.Text;
+            livro.Capa = pbCapa.Image;
+            livro.Disponibilidade = (rdLocal.Checked ? 1 : 2);
+            livro.Genero = txtGenero.Text;
+            livro.NumeroExemplares = Convert.ToInt32(txtNroExemplares.Text);
+            livro.NumeroPaginas = Convert.ToInt32(txtNroPaginas.Text);
+            livro.Titulo = txtTitulo.Text;
+        }
+
+        private void TornarEntidadeEdicao()
+        {
+            btnEditar.Text = "Salvar";
+
+            txtTitulo.ReadOnly = false;
+            txtNroPaginas.ReadOnly = false;
+            txtNroExemplares.ReadOnly = false;
+            txtGenero.ReadOnly = false;
+            txtAutor.ReadOnly = false;
+
+            btnEnviar.Enabled = true;
+            btnExcluir.Enabled = true;
+
+            rdEmprestimoLivre.Enabled = true;
+            rdLocal.Enabled = true;
+            estadoEntidade = 2;
         }
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            this.livro = null;
-            this.estadoEntidade = 1;
-            this.pbCapa.Image = null;
-            this.txtTitulo.Text = "";
-            this.txtNroPaginas.Text = "";
-            this.txtNroExemplares.Text = "";
-            this.txtGenero.Text = "";
-            this.txtAutor.Text = "";
-            this.Form1_Load(sender, e);
+            LimparRegistro();
+            errorProvider.Clear();
+            Form1_Load(sender, e);
+        }
+
+        private void LimparRegistro()
+        {
+            livro = null;
+            estadoEntidade = 1;
+            pbCapa.Image = null;
+            txtTitulo.Text = "";
+            txtNroPaginas.Text = "";
+            txtNroExemplares.Text = "";
+            txtGenero.Text = "";
+            txtAutor.Text = "";
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
