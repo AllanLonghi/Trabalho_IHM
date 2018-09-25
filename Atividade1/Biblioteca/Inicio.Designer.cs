@@ -118,6 +118,8 @@
             this.txtNroPaginas.Name = "txtNroPaginas";
             this.txtNroPaginas.Size = new System.Drawing.Size(147, 22);
             this.txtNroPaginas.TabIndex = 9;
+            this.txtNroPaginas.TextChanged += new System.EventHandler(this.txtNroPaginas_TextChanged);
+            this.txtNroPaginas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNroPaginas_KeyPress);
             // 
             // label5
             // 
@@ -134,6 +136,7 @@
             this.txtNroExemplares.Name = "txtNroExemplares";
             this.txtNroExemplares.Size = new System.Drawing.Size(159, 22);
             this.txtNroExemplares.TabIndex = 11;
+            this.txtNroExemplares.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNroExemplares_KeyPress);
             // 
             // label6
             // 
@@ -188,10 +191,12 @@
             // 
             // pbCapa
             // 
+            this.pbCapa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbCapa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbCapa.Location = new System.Drawing.Point(494, 29);
             this.pbCapa.Name = "pbCapa";
             this.pbCapa.Size = new System.Drawing.Size(314, 229);
+            this.pbCapa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCapa.TabIndex = 13;
             this.pbCapa.TabStop = false;
             // 

@@ -5,6 +5,12 @@ VisualStudioVersion = 15.0.28010.2019
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biblioteca", "Biblioteca.csproj", "{4E9557F6-9624-44CC-BCC4-2FD7B014A4D3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentos", "Documentos", "{68F3A9AE-9113-47D8-B78D-31110122FC20}"
+	ProjectSection(SolutionItems) = preProject
+		Documentos\Usabilidade.odt = Documentos\Usabilidade.odt
+		Documentos\Usabilidade.pdf = Documentos\Usabilidade.pdf
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

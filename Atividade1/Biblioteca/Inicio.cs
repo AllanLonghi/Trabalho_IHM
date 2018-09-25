@@ -141,5 +141,25 @@ namespace Biblioteca
                 pbCapa.Image = new Bitmap(opnfd.FileName);
             }
         }
+
+        private void txtNroPaginas_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNroPaginas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidarSomenteNumeros(e);
+        }
+
+        private static void ValidarSomenteNumeros(KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtNroExemplares_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidarSomenteNumeros(e);
+        }
     }
 }
