@@ -10,7 +10,7 @@ namespace Login
         public Form1()
         {
             InitializeComponent();
-            Arquivo = "C:\\Users\\Allan\\Desktop\\Trabalho_IHM\\login.login";
+            Arquivo = System.AppDomain.CurrentDomain.BaseDirectory + "login.login";
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
